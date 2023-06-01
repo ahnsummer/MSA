@@ -1,14 +1,14 @@
 import {
   USER_SERVICE_NAME,
   User,
-  UserServiceClient
+  UserServiceClient,
 } from './../../../proto/user';
-import { Controller, Inject } from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { Controller, Inject, Get } from '@nestjs/common';
 import { OnModuleInit } from '@nestjs/common/interfaces';
 import { ClientGrpc } from '@nestjs/microservices/interfaces';
-import { Observable } from 'rxjs';
 
-@Controller()
+@Controller('/api')
 export class AppController implements OnModuleInit {
   private useService: UserServiceClient;
 
@@ -19,7 +19,8 @@ export class AppController implements OnModuleInit {
       this.client.getService<UserServiceClient>(USER_SERVICE_NAME);
   }
 
+  @Get('/user')
   getUser(): Observable<User> {
-    return this.useService.findOne({ id: 1 });
+    return this.useService.findOne({ id: 3 });
   }
 }

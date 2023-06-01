@@ -12,5 +12,5 @@ message UserById {
 
 message User {
   int32 id = 1;
-  string name = "홍길동";
+  string name = 2;
 }

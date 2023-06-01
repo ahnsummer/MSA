@@ -17,7 +17,7 @@ async function bootstrap() {
   );
 
   await app.listen();
-  Logger.log(`🚀 Application is running `);
+  Logger.log(`🚀 Application is running on`);
 }
 
 bootstrap();

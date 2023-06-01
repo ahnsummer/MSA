@@ -5,9 +5,11 @@ import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const port = 8080;
+  
+  await app.listen(port);
 
-  await app.listen(3000);
-  Logger.log(`🚀 Application is running`);
+  Logger.log(`🚀 Application is running on: ${await app.getUrl()}`);
 }
 
 bootstrap();
